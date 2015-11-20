@@ -28,4 +28,4 @@ RUN chmod +x /tmp/startup.sh
 # runtime
 EXPOSE 22
 
-CMD ./tmp/startup.sh
+CMD /tmp/startup.sh
