@@ -10,6 +10,14 @@ RUN dnf install -y redhat-rpm-config-36 python-devel
 RUN pip install --upgrade pip
 
 ENV HOME /root
+WORKDIR /root
+
+# Clone Robottelo
+RUN git clone https://github.com/SatelliteQE/robottelo.git
+
+# Install Python deps
+RUN cd /root/robottelo && pip install -r requirements.txt
+RUN cd /root/robottelo && pip install -r requirements-optional.txt
 
 ADD startup.sh /tmp/
 RUN chmod +x /tmp/startup.sh
