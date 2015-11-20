@@ -1,14 +1,13 @@
 #!/bin/sh
 
-cd /root
+cd /root/robottelo
 
-# Clone Robottelo
-git clone https://github.com/SatelliteQE/robottelo.git
-cd robottelo
+# Update Robottelo code
+git pull
 
-# Install Python deps
-pip install -r requirements.txt
-pip install -r requirements-optional.txt
+# Update dependencies, if needed
+pip install -q --upgrade -r requirements.txt
+pip install -q --upgrade -r requirements-optional.txt
 
 # Copy the properties file
 cp robottelo.properties.sample robottelo.properties
